@@ -1,0 +1,22 @@
+# Yalnızca öğrenci çıktısı ve yayın yapılandırması Git'e alınabilir.
+/*
+!/.gitignore
+!/PUBLISH.md
+!/dist/
+/dist/*
+!/dist/index.html
+!/dist/app.js
+!/dist/review.js
+!/dist/data-loader.js
+!/dist/data.json
+!/dist/styles.css
+!/dist/layout.css
+!/dist/library.css
+!/.github/
+/.github/*
+!/.github/workflows/
+!/.github/scripts/
+/.github/workflows/*
+!/.github/workflows/pages.yml
+/.github/scripts/*
+!/.github/scripts/verify-pages.cjs

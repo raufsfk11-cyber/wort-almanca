@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f6f5f0">
+  <title>Wort — Almanca kelime kartları</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="layout.css">
+  <link rel="stylesheet" href="library.css">
+  <script src="data-loader.js" defer></script>
+  <script src="review.js" defer></script>
+
+  <script src="app.js" defer></script>
+</head>
+<body class="student-site">
+  <aside class="sidebar">
+    <a class="brand" href="index.html" aria-label="Wort ana sayfa"><span class="brand-icon">w.</span> wort<span class="brand-dot">.</span></a>
+    <div class="sidebar-intro">Küçük tekrarlar.<br>Büyük adımlar.</div>
+    <div class="section-label">KELİME KOLEKSİYONUN</div>
+    <nav id="chapters" aria-label="Seviye seçimi"></nav>
+    <div class="sidebar-note"><span class="leaf">✳</span><p>Her kelime yeni bir kapı.<br><strong>Bugün bir tane daha aç.</strong></p></div>
+    <div class="sidebar-footer"><span class="status-dot"></span> Sadece sen ve kelimeler.</div>
+  </aside>
+  <main>
+    <header><nav class="breadcrumb" aria-label="Sayfa yolu"><a href="#">Ana sayfa</a><span>/</span><strong id="breadcrumb">Seviyeler</strong></nav><span class="level" id="level-badge">DE</span></header>
+    <p id="data-status" class="temporary-note" role="status">Koleksiyon yükleniyor…</p>
+    <section id="catalog" class="workspace" aria-labelledby="catalog-title">
+      <div class="eyebrow"><span></span> HER GÜN BİRAZ ALMANCA</div>
+      <div class="heading-row"><div><h1 id="catalog-title" tabindex="-1"></h1><p id="catalog-description" class="subtitle"></p></div></div>
+      <div id="catalog-grid" class="catalog-grid"></div>
+    </section>
+    <section class="workspace" id="study" hidden>
+      <div class="eyebrow"><span></span> HER GÜN BİRAZ ALMANCA</div>
+      <div class="heading-row"><div><h1>Kelimelere yer aç.</h1><p class="subtitle">Düşün, cevabı aç ve kendi hızında devam et.</p></div><button id="restart" class="restart" title="Seçili Kapitel'i yeniden başlat">↻ <span>Yeniden başla</span></button></div>
+      <div class="deck-heading"><div><span id="chapter-title"></span><span class="separator">/</span><span id="chapter-topic"></span></div><span id="word-count"></span></div>
+      <div class="study-nav"><a id="back-topics" href="#">← Konulara dön</a></div>
+      <p id="round-position" class="round-position" aria-live="polite"></p>
+      <article class="flashcard" id="flashcard" aria-label="Kelime kartı">
+        <div class="card-top"><span class="card-label" id="card-label">DEUTSCH → TÜRKÇE</span><span class="card-symbol" aria-hidden="true">✧</span></div>
+        <div class="card-content" aria-live="polite" aria-atomic="true"><span class="word-type" id="word-type"></span><h2 id="word"></h2><div id="answer" class="answer" hidden><div class="answer-divider"></div><h3 id="translation"></h3><p class="example" id="example" lang="de"></p><p id="example-translation" lang="tr"></p></div></div>
+        <div class="card-bottom"><span id="card-hint">Bir an düşün. Aklına geliyor mu?</span><span class="mini-logo">w.</span></div>
+      </article>
+      <div class="actions" id="actions"><button id="reveal" class="reveal">Cevabı göster <span>↵</span></button><div id="rating" class="rating" hidden><button id="unknown" class="unknown"><span>↻</span> Bilmiyorum <kbd>1</kbd></button><button id="known" class="known"><span>✓</span> Biliyorum <kbd>2</kbd></button></div></div>
+      <p class="keyboard-hint" id="keyboard-hint"><kbd>Space</kbd> veya <kbd>Enter</kbd> ile cevabı aç</p>
+      <div class="tip"><span class="tip-icon">✦</span><p><strong>Kendine karşı dürüst ol.</strong><br>Her kelime bu turda bir kez sorulur. Tur sonunda bilmediklerini yeniden çalışabilirsin.</p></div>
+      <p class="session-note">Bu çalışma yalnızca bu sayfada yaşar. Yenilediğinde yeni bir başlangıç.</p>
+    </section>
+    <section id="round-results" class="workspace" hidden aria-labelledby="result-title">
+      <div class="eyebrow"><span></span> BİR TUR DAHA TAMAMLANDI</div>
+      <div class="result-panel">
+        <span class="result-symbol" aria-hidden="true">✧</span>
+        <p id="result-topic" class="subtitle"></p>
+        <h1 id="result-title"></h1>
+        <p id="result-message" class="subtitle"></p>
+        <div class="result-progress-heading"><span>Bu turun başarısı</span><strong id="result-percentage"></strong></div>
+        <progress id="result-progress" class="result-progress" max="100" value="0" aria-label="Öz değerlendirmeye göre başarı yüzdesi"></progress>
+        <div class="result-totals"><div><strong id="result-correct"></strong><span>Doğru · Biliyorum</span></div><div><strong id="result-incorrect"></strong><span>Yanlış · Bilmiyorum</span></div></div>
+        <p class="result-disclaimer">Bu sonuç kendi değerlendirmeni gösterir. Otomatik doğruluk kontrolü yapılmaz.</p>
+      </div>
+      <div class="result-actions">
+        <button id="show-missed" class="boxed" aria-expanded="false" aria-controls="missed-list-section">Bilmediğim Kelimeleri Gör</button>
+        <button id="retry-missed" class="boxed primary">Sadece Yanlışları Tekrar Çalış</button>
+        <button id="restart-topic" class="boxed">Tüm Konuyu Yeniden Başlat</button>
+        <a id="results-back" class="boxed" href="#">Konulara Dön</a>
+      </div>
+      <section id="missed-list-section" class="missed-panel" hidden aria-labelledby="missed-title"><h2 id="missed-title">Bilmediğin kelimeler</h2><ul id="missed-list"></ul></section>
+      <p class="session-note">Sonuçlar yalnızca bu tur için bellekte tutulur. Yenilemede veya konudan ayrıldığında sıfırlanır.</p>
+    </section>
+    <p id="notice" role="status" aria-live="polite"></p>
+    <footer><span>Az az, her gün.</span><span>Mit jedem Wort ein Stück weiter. <span class="footer-spark">✳</span></span></footer>
+  </main>
+</body>
+</html>

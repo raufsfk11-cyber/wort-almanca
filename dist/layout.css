@@ -1,0 +1,136 @@
+/* Çalışma alanı: kart ve eylemler için geniş, dengeli bir yerleşim. */
+/* Bu katman temel stillerden sonra uygulanır. */
+body { min-height: 100svh; }
+main { padding-inline: clamp(24px, 4vw, 72px); }
+header { height: 76px; flex-shrink: 0; }
+.workspace {
+  max-width: 1040px;
+  margin: clamp(24px, 3vh, 44px) auto 0;
+}
+.heading-row { margin: 12px 0 26px; }
+h1 { font-size: clamp(28px, 2.6vw, 40px); }
+.subtitle { color: #75816e; font-size: 14px; line-height: 1.6; }
+.restart {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-width: 180px;
+  min-height: 58px;
+  padding: 14px 20px;
+  border: 1px solid #bdc9b1;
+  border-bottom: 3px solid #acbc9c;
+  border-radius: 12px;
+  background: #e9eedf;
+  color: #35513d;
+  box-shadow: 0 4px 10px #294c3b08;
+  font-size: 25px;
+  transition: background .18s, box-shadow .18s;
+}
+.restart span { display: inline; font-size: 14px; font-weight: 650; margin: 0; }
+.restart:hover { background: #dfe8d1; box-shadow: 0 5px 14px #294c3b12; }
+.deck-heading { font-size: 13px; margin-bottom: 15px; gap: 12px; }
+#word-count { font-size: 12px; padding: 7px 11px; white-space: nowrap; }
+.flashcard {
+  min-height: clamp(420px, 48vh, 580px);
+  padding: 26px clamp(24px, 3vw, 48px) 22px;
+  border-color: #d3ddc7;
+  border-radius: 24px;
+  background: radial-gradient(ellipse at 50% 25%, #f5f8ec 0, #fffefa 70%);
+  box-shadow: 0 18px 44px #30462c0c, 0 3px 8px #30462c06;
+}
+.flashcard::before { height: 5px; background: linear-gradient(90deg, #9bb67b, #cad9b5, #e0e8d3); }
+.card-label { font-size: 10px; color: #77866c; }
+.card-symbol { font-size: 30px; }
+.card-content { padding: 28px 0; min-width: 0; }
+.word-type { padding: 7px 13px; font-size: 12px; color: #647b50; }
+h2 { font-size: clamp(44px, 4.8vw, 76px); margin: 20px 0 16px; max-width: 100%; }
+.example { font-size: 16px; color: #76836b; line-height: 1.65; }
+.card-bottom { font-size: 11px; color: #7f8c73; gap: 16px; }
+.answer-divider { margin: 22px auto 18px; width: 64px; }
+.answer h3 { font-size: clamp(23px, 2.1vw, 30px); line-height: 1.4; }
+.answer p { font-size: 14px; line-height: 1.6; color: #77846b; }
+.actions { margin-top: 22px; }
+.reveal, .rating button {
+  min-height: 78px;
+  height: auto;
+  padding: 20px 24px;
+  border-radius: 15px;
+  font-size: 18px;
+  font-weight: 650;
+  box-shadow: 0 6px 14px #294c3b0d;
+  transition: background .18s, box-shadow .18s;
+}
+.reveal, .known { border-bottom: 4px solid #193a2c; }
+.rating { gap: 18px; }
+.rating button { min-width: 0; gap: 13px; }
+.rating button > span { font-size: 25px; }
+.unknown { background: #f4e9d9; color: #805a2b; border: 1px solid #dbc29d; border-bottom: 4px solid #c8ab80; }
+.unknown:hover { background: #edddc5; }
+.rating kbd { font-size: 11px; padding: 4px 7px; margin: 0 0 0 8px; opacity: .8; }
+.keyboard-hint { font-size: 11px; color: #7e8a72; margin: 16px 0 24px; }
+.tip { padding: 16px 20px; }
+.tip p { font-size: 12px; color: #78876b; }
+.tip strong { color: #5d734d; }
+.session-note { font-size: 10px; margin: 17px 0 24px; line-height: 1.6; }
+footer { min-height: 54px; }
+
+@media (min-width: 1700px) {
+  .workspace { max-width: 1160px; }
+  .flashcard { min-height: 540px; }
+}
+@media (min-width: 701px) and (max-width: 1100px) {
+  .sidebar { width: 205px; }
+  main { padding-inline: 24px; }
+  .heading-row { align-items: flex-start; }
+  .restart { min-width: 145px; min-height: 54px; padding: 12px; gap: 7px; }
+  .restart span { font-size: 12px; }
+  .subtitle { font-size: 12px; }
+  .flashcard { min-height: 420px; }
+  .rating { gap: 12px; }
+  .rating button { padding: 18px 12px; font-size: 16px; gap: 8px; }
+}
+@media (max-width: 700px) {
+  .sidebar { padding: 16px 18px 12px; }
+  #chapters { margin-top: 14px; }
+  .chapter { padding: 12px 8px; }
+  .chapter strong { font-size: 11px; }
+  .chapter small { line-height: 1.4; }
+  main { padding-inline: 18px; }
+  header { height: 54px; }
+  .workspace { margin-top: 23px; }
+  .heading-row { flex-wrap: wrap; align-items: stretch; gap: 16px; margin-bottom: 22px; }
+  .heading-row > div { width: 100%; }
+  h1 { font-size: 30px; }
+  .subtitle { font-size: 12px; margin-top: 6px; }
+  .restart { min-height: 52px; width: 100%; font-size: 23px; }
+  .restart span { font-size: 14px; }
+  .deck-heading { font-size: 11px; }
+  #word-count { font-size: 10px; }
+  .separator { margin-inline: 7px; }
+  .flashcard { min-height: 390px; padding: 20px; border-radius: 20px; }
+  h2 { font-size: clamp(36px, 9vw, 56px); letter-spacing: -1px; }
+  .example { font-size: 14px; }
+  .card-label { font-size: 9px; }
+  .card-bottom { font-size: 10px; }
+  .answer h3 { font-size: 24px; }
+  .answer p { font-size: 13px; }
+  .actions { margin-top: 18px; }
+  .rating { gap: 10px; }
+  .rating button, .reveal { min-height: 76px; padding: 18px 10px; font-size: 16px; border-radius: 12px; }
+  .rating button { gap: 8px; }
+  .rating button > span { font-size: 22px; }
+  .rating kbd { display: none; }
+  .keyboard-hint { display: none; }
+  .tip { margin-top: 22px; padding: 14px; }
+  .tip p { font-size: 11px; }
+  .session-note { font-size: 9px; }
+  footer { flex-wrap: wrap; justify-content: center; gap: 6px 16px; padding-block: 15px; text-align: center; }
+}
+@media (max-width: 360px) {
+  main { padding-inline: 12px; }
+  .chapter-icon { display: none; }
+  .flashcard { padding: 18px 14px; }
+  .rating { flex-direction: column; }
+  .rating button { flex: auto; min-height: 64px; }
+}
